@@ -43,8 +43,10 @@ class TodoListRepository {
   deleteTodoBy(id) {
     //实现通过id来删除todo纪录的方法
     for (var i=0;i<this.todoList.length;i++){
-        if (id == this.todoList[i].id)
-            this.todoList[i].splice(i,1);
+        if (id == this.todoList[i].id){
+          this.todoList.splice(i,1);
+          break;
+        }       
     }
   }
 }
