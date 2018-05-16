@@ -12,23 +12,40 @@ class TodoListRepository {
 
   listAllTodos() {
     //实现查看所有todos的方法
-    return "aaaa";
+    return this.todoList;
   }
 
   findTodoBy(id) {
     //实现通过id查看具体todo的方法
+    for (var i=0;i<this.todoList.length;i++){
+        if (id == this.todoList[i].id)
+            return this.todoList[i];
+    }
   }
 
   createTodo(todoBody) {
     //实现创建新todo纪录的方法
+    const todo = todoBody
+    this.todoList.push(todo);
+    
   }
 
   updateTodo(id, update) {
     //实现通过id和一个更新对象来更新todo纪录的方法
+    for (var i=0;i<this.todoList.length;i++){
+        if (id == this.todoList[i].id){
+            this.todoList[i].name = update.name;
+            this.todoList[i].description = update.description;
+        }
+    }
   }
 
   deleteTodoBy(id) {
     //实现通过id来删除todo纪录的方法
+    for (var i=0;i<this.todoList.length;i++){
+        if (id == this.todoList[i].id)
+            this.todoList[i].splice(i,1);
+    }
   }
 }
 
